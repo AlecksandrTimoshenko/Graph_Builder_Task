@@ -1,1 +1,0 @@
-17:55:09,420 ERROR main DijkstraAlgorithm:execute:32 - RuntimeException in DijkstraAlgorithm.getDistance

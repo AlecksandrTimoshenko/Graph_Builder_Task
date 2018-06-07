@@ -1,6 +1,6 @@
 package graph_buider;
 
-import java.util.ArrayList;
+import com.google.common.collect.Lists;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,6 +9,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.apache.log4j.Logger;
+
+/**
+ * Looks for the shortest path between two vertices using the Dextra algorithm
+ */
 
 public class Dejkstra {
 
@@ -22,15 +26,18 @@ public class Dejkstra {
   private Map<Vertex, Integer> distance;
 
   public Dejkstra(Graph graph) {
-    this.nodes = new ArrayList<Vertex>(graph.getVertexes());
-    this.edges = new ArrayList<Edge>(graph.getEdges());
+    this.nodes = Lists.newArrayList(graph.getVertexes());
+    this.edges = Lists.newArrayList(graph.getEdges());
   }
 
+  /**
+   * Starts execution of algorithm Dextra and set start vertex.
+   */
   public void execute(Vertex source) {
-    settledNodes = new HashSet<Vertex>();
-    unSettledNodes = new HashSet<Vertex>();
-    distance = new HashMap<Vertex, Integer>();
-    predecessors = new HashMap<Vertex, Vertex>();
+    settledNodes = new HashSet<>();
+    unSettledNodes = new HashSet<>();
+    distance = new HashMap<>();
+    predecessors = new HashMap<>();
     distance.put(source, 0);
     unSettledNodes.add(source);
     while (unSettledNodes.size() > 0) {
@@ -41,6 +48,9 @@ public class Dejkstra {
     }
   }
 
+  /**
+   * Looking for the Minimal Distances and put in too distance map.
+   */
   private void findMinimalDistances(Vertex node) {
     List<Vertex> adjacentNodes = getNeighbors(node);
     for (Vertex target : adjacentNodes) {
@@ -54,6 +64,10 @@ public class Dejkstra {
     }
   }
 
+  /**
+   * @param {@link Edge} Vertex start, Vertex finish.
+   * @return {@link Edge} weight.
+   */
   private int getDistance(Vertex node, Vertex target) {
     for (Edge edge : edges) {
       if (edge.getStart().equals(node)
@@ -64,8 +78,12 @@ public class Dejkstra {
     throw new RuntimeException("Should not happen");
   }
 
+  /**
+   * @param {@link Vertex}
+   * @return a neighbors List of {@link Vertex} from graph.
+   */
   private List<Vertex> getNeighbors(Vertex node) {
-    List<Vertex> neighbors = new ArrayList<Vertex>();
+    List<Vertex> neighbors = Lists.newArrayList();
     for (Edge edge : edges) {
       if (edge.getStart().equals(node)
           && !isSettled(edge.getFinish())) {
@@ -75,6 +93,9 @@ public class Dejkstra {
     return neighbors;
   }
 
+  /**
+   * @return {@link Vertex} minimum distance.
+   */
   private Vertex getMinimum(Set<Vertex> vertexes) {
     Vertex minimum = null;
     for (Vertex vertex : vertexes) {
@@ -93,6 +114,10 @@ public class Dejkstra {
     return settledNodes.contains(vertex);
   }
 
+  /**
+   * @param {@link Vertex} destination.
+   * @return distance.
+   */
   private int getShortestDistance(Vertex destination) {
     Integer d = distance.get(destination);
     if (d == null) {
@@ -102,8 +127,12 @@ public class Dejkstra {
     }
   }
 
+  /**
+   * @param target vertex.
+   * @return shortest path.
+   */
   public LinkedList<Vertex> getPath(Vertex target) {
-    LinkedList<Vertex> path = new LinkedList<Vertex>();
+    LinkedList<Vertex> path = new LinkedList<>();
     Vertex step = target;
     if (predecessors.get(step) == null) {
       return null;
@@ -116,5 +145,17 @@ public class Dejkstra {
     Collections.reverse(path);
     logger.info("Path " + path);
     return path;
+  }
+
+  /**
+   * Looking for the Optimal path way between vertex.
+   *
+   * @param startVertexId first {@link Vertex} {@code id}.
+   * @param finishVertexId second {@link Vertex} {@code id}.
+   * @return shortest path.
+   */
+  public LinkedList<Vertex> getOptimalPath(int startVertexId, int finishVertexId) {
+    execute(nodes.get(startVertexId));
+    return getPath(nodes.get(finishVertexId));
   }
 }
