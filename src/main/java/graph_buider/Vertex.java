@@ -2,19 +2,28 @@ package graph_buider;
 
 public class Vertex {
 
+  /** Value - {@value}, for storing the id Vertex.*/
   final private int id;
+  /** Value - {@value}, for storing the name of Vertex.*/
   final private String name;
 
-
+  /**
+   * Constructor.
+   * @param id for create new {@link Vertex}
+   * @param name for create new {@link Vertex}
+   * */
   public Vertex(int id, String name) {
     this.id = id;
     this.name = name;
   }
 
+  /**
+   * @return id value for {@link Vertex}
+   */
   public int getId() {
     return id;
   }
-
+  /** @return name value for {@link Vertex} */
   public String getName() {
     return name;
   }

@@ -18,13 +18,35 @@ public class Dejkstra {
 
   private static final Logger logger = Logger.getLogger(Dejkstra.class);
 
+  /**
+   * List of all {@link Vertex} in this graph.
+   */
   private final List<Vertex> nodes;
+  /**
+   * List of all {@link Vertex} in this graph.
+   */
   private final List<Edge> edges;
+  /**
+   * Stored Set of selected settled {@link Vertex}.
+   */
   private Set<Vertex> settledNodes;
+  /**
+   * Stored Set of selected unsettled {@link Vertex}.
+   */
   private Set<Vertex> unSettledNodes;
+  /**
+   * Stored Set of selected predecessors {@link Vertex}.
+   */
   private Map<Vertex, Vertex> predecessors;
+  /**
+   * Map with key {@link Vertex} and value distance.
+   */
   private Map<Vertex, Integer> distance;
 
+  /**
+   * Constructor.
+   * @param graph and create list of {@link Vertex}, and list of {@link Edge}
+   */
   public Dejkstra(Graph graph) {
     this.nodes = Lists.newArrayList(graph.getVertexes());
     this.edges = Lists.newArrayList(graph.getEdges());

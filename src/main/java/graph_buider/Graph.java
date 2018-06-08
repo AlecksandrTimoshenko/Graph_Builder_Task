@@ -22,15 +22,14 @@ public class Graph {
   private final List<Edge> edges;
 
   /**
-   * Returns List of all {@link Edge} this graph.
+   * @return List of all {@link Edge} this graph.
    */
   public List<Edge> getEdges() {
     return edges;
   }
 
-
   /**
-   * Returns List of all {@link Vertex} in this graph.
+   * @return List of all {@link Vertex} in this graph.
    */
   public List<Vertex> getVertexes() {
     return vertexes;
@@ -45,7 +44,7 @@ public class Graph {
     private List<Edge> edges = Lists.newArrayList();
 
     /**
-     * @param vertex
+     * @param vertex it's new {@link Vertex}
      */
     public Builder addVertex(Vertex vertex) {
       this.vertexes.add(vertex);
@@ -53,7 +52,7 @@ public class Graph {
     }
 
     /**
-     * @param {@link Vertex} List.
+     * @param vertexes list inserts to graph.
      */
     public Builder addVertexes(List<Vertex> vertexes) {
       this.vertexes.addAll(vertexes);
@@ -75,7 +74,7 @@ public class Graph {
         logger.error("Negative value duration " + duration);
         throw new IllegalArgumentException("Duration cannot be negative");
       }
-      Edge lane = new Edge("", vertexes.get(sourceLocNo), vertexes.get(destLocNo), duration);
+      Edge lane = new Edge(vertexes.get(sourceLocNo), vertexes.get(destLocNo), duration);
       edges.add(lane);
       logger.info(
           "Added lane between " + vertexes.get(sourceLocNo) + " and " + vertexes.get(destLocNo));

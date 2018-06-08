@@ -1,25 +1,25 @@
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_1
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_2
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_0 and Node_1
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_3
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_0 and Node_2
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_4
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_5
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_0 and Node_4
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_6
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_7
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_8
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_9
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_10
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_0 and Node_9
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_2 and Node_6
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_2 and Node_7
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_3 and Node_7
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_5 and Node_8
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_8 and Node_9
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_7 and Node_9
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_4 and Node_9
-2018-06-08 00:27:02 INFO  Graph:91 - Node added with name: Node_11
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_9 and Node_10
-2018-06-08 00:27:02 INFO  Graph:80 - Added lane between Node_1 and Node_10
-2018-06-08 00:27:02 INFO  Dejkstra:146 - Path [Node_0, Node_9, Node_10]
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_1
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_2
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_0 and Node_1
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_3
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_0 and Node_2
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_4
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_5
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_0 and Node_4
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_6
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_7
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_8
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_9
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_10
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_0 and Node_9
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_2 and Node_6
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_2 and Node_7
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_3 and Node_7
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_5 and Node_8
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_8 and Node_9
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_7 and Node_9
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_4 and Node_9
+2018-06-08 12:15:18 INFO  Graph:90 - Node added with name: Node_11
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_9 and Node_10
+2018-06-08 12:15:18 INFO  Graph:79 - Added lane between Node_1 and Node_10
+2018-06-08 12:15:18 INFO  Dejkstra:169 - Path [Node_0, Node_9, Node_10]
