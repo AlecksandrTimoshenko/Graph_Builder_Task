@@ -68,27 +68,35 @@ public class Graph {
      * @throws IllegalArgumentException, if you try set negative value in {@code int weight} fild.
      */
     public Builder addEdge(int sourceLocNo, int destLocNo, int duration) {
-      vertexCheckAvailability(sourceLocNo);
-      vertexCheckAvailability(destLocNo);
+
+      Vertex startVertex = vertexCheckAvailability(sourceLocNo);
+      Vertex finishVertex = vertexCheckAvailability(destLocNo);
       if (duration < 0) {
         logger.error("Negative value duration " + duration);
         throw new IllegalArgumentException("Duration cannot be negative");
       }
-      Edge lane = new Edge(vertexes.get(sourceLocNo), vertexes.get(destLocNo), duration);
+      Edge lane = new Edge(startVertex, finishVertex, duration);
       edges.add(lane);
       logger.info(
-          "Added lane between " + vertexes.get(sourceLocNo) + " and " + vertexes.get(destLocNo));
+          "Added lane between " + startVertex.getName() + " and " + finishVertex.getName());
       return this;
     }
 
     /**
      * Checks - it's possible to add a {link Vertex} to List and add it
      */
-    private void vertexCheckAvailability(int id) {
-      while (vertexes.size() < id + 1) {
-        vertexes.add(new Vertex(vertexes.size(), "Node_" + vertexes.size()));
-        logger.info("Node added with name: Node_" + vertexes.size());
+    private Vertex vertexCheckAvailability(int id) {
+      Vertex location = new Vertex(id, "Node_" + id);
+      if (vertexes.size() == 0) {
+        vertexes.add(location);
+        return location;
       }
+      if (!vertexes.contains(location)) {
+        vertexes.add(location);
+        logger.info("Node added with name: Node_" + id);
+        return location;
+      }
+      return location;
     }
 
     /**
@@ -116,9 +124,9 @@ public class Graph {
         Vertex vertex = queue.pop();
         visited.put(vertex, true);
         for (Edge edge : edges) {
-          if (edge.getStart().equals(vertex) && !visited.containsKey(edge.getFinish())) {
+          if (edge.getStart().equals(vertex) & !visited.containsKey(edge.getFinish())) {
             queue.add(edge.getFinish());
-          } else if (edge.getFinish().equals(vertex) && !visited.containsKey(edge.getStart())) {
+          } else if (edge.getFinish().equals(vertex) & !visited.containsKey(edge.getStart())) {
             queue.add(edge.getStart());
           }
         }
@@ -128,6 +136,7 @@ public class Graph {
       }
       return false;
     }
+
   }
 
   private Graph(List<Vertex> vertexes, List<Edge> edges) {

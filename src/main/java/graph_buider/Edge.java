@@ -3,15 +3,15 @@ package graph_buider;
 public class Edge {
 
   /**
-   * Value - {@value}, for indicates the first {@link Vertex}.
+   * Value for indicates the first {@link Vertex}.
    */
   private final Vertex start;
   /**
-   * Value - {@value}, for indicates the second {@link Vertex}.
+   * Value for indicates the second {@link Vertex}.
    */
   private final Vertex finish;
   /**
-   * Value - {@value}, for storing the weight {@link Edge}.
+   * Value for storing the weight {@link Edge}.
    */
   private final int weight;
 

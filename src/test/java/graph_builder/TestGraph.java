@@ -22,10 +22,11 @@ public class TestGraph {
     nodes = Lists.newArrayList();
     edges = Lists.newArrayList();
 
-    for (int i = 0; i < 11; i++) {
-      Vertex location = new Vertex(i, "Node_" + i);
-      nodes.add(location);
-    }
+    Graph graph1 = new Graph.Builder()
+        .addEdge(2, 0, 5)
+        .addEdge(0, 1, 7)
+        .addEdge(1, 2, 3)
+        .build();
 
     Graph graph = new Graph.Builder()
         .addEdge(0, 1, 85)

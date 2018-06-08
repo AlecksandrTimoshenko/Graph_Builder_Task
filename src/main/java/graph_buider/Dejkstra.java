@@ -48,14 +48,14 @@ public class Dejkstra {
    * @param graph and create list of {@link Vertex}, and list of {@link Edge}
    */
   public Dejkstra(Graph graph) {
-    this.nodes = Lists.newArrayList(graph.getVertexes());
-    this.edges = Lists.newArrayList(graph.getEdges());
+    this.nodes = graph.getVertexes();
+    this.edges = graph.getEdges();
   }
 
   /**
    * Starts execution of algorithm Dextra and set start vertex.
    */
-  public void execute(Vertex source) {
+  private void execute(Vertex source) {
     settledNodes = new HashSet<>();
     unSettledNodes = new HashSet<>();
     distance = new HashMap<>();
@@ -87,7 +87,8 @@ public class Dejkstra {
   }
 
   /**
-   * @param {@link Edge} Vertex start, Vertex finish.
+   * @param node Vertex start
+   * @param target Vertex finish.
    * @return {@link Edge} weight.
    */
   private int getDistance(Vertex node, Vertex target) {
@@ -101,7 +102,7 @@ public class Dejkstra {
   }
 
   /**
-   * @param {@link Vertex}
+   * @param node {@link Vertex}
    * @return a neighbors List of {@link Vertex} from graph.
    */
   private List<Vertex> getNeighbors(Vertex node) {
@@ -137,7 +138,7 @@ public class Dejkstra {
   }
 
   /**
-   * @param {@link Vertex} destination.
+   * @param destination {@link Vertex} .
    * @return distance.
    */
   private int getShortestDistance(Vertex destination) {
@@ -153,7 +154,7 @@ public class Dejkstra {
    * @param target vertex.
    * @return shortest path.
    */
-  public LinkedList<Vertex> getPath(Vertex target) {
+  private LinkedList<Vertex> getPath(Vertex target) {
     LinkedList<Vertex> path = new LinkedList<>();
     Vertex step = target;
     if (predecessors.get(step) == null) {
